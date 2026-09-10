@@ -31,6 +31,8 @@ class SingleLinkedList:
             # current is now last elememnt, new_node becomes next
             current.next = new_node
 
+    
+
 
 def main():
 
@@ -39,6 +41,8 @@ def main():
     for i in range(1,4):
         new_list.append(i)
 
+
+    
 
 if __name__ == "__main__":
     main()
