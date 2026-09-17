@@ -34,7 +34,4 @@ class Stack:
         return popped_node.data
 
     def peek(self):
-        # Return the top value without removing it from the stack.
-        if self.is_empty():
-            raise IndexError("peek from empty stack")
         return self.top.data
