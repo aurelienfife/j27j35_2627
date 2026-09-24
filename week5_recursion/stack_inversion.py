@@ -36,3 +36,29 @@ class Stack:
     def peek(self):
         return self.top.data
 
+
+def main():
+    nums = [1,2,3,4,5]
+    s = Stack()
+
+    for n in nums:
+        print('Pushing', n, 'in s')
+        s.push(n)
+
+    print(s.peek())
+
+
+    s2 = Stack()
+    while not s.is_empty():
+        n = s.pop()
+        print('Popping', n, 'from s')
+        print('Pushing into s2')
+        s2.push(n)
+
+    print(s2.peek())
+    
+
+
+
+if __name__ == "__main__":
+    main()
