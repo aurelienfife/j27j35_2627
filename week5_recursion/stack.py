@@ -34,5 +34,8 @@ class Stack:
         return popped_node.data
 
     def peek(self):
-        return self.top.data
+        if self.top is None:
+            return None
+        else:
+            return self.top.data
 
