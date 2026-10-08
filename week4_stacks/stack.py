@@ -1,3 +1,4 @@
+# Stack based on linked list
 # Node class
 
 class Node:
