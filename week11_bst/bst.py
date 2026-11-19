@@ -61,47 +61,47 @@ class BSTree:
         # Get children count  
         children_count = 0  
  
-        if node.left_child and node.right_child:  
+        if node.left and node.right:  
             children_count = 2  
-        elif (node.left_child is None) and (node.right_child is None):  
+        elif (node.left is None) and (node.right is None):  
             children_count = 0  
         else:  
             children_count = 1  
         
         if children_count == 0:  
             if parent:  
-                if parent.right_child is node:  
-                    parent.right_child = None  
+                if parent.right is node:  
+                    parent.right = None  
                 else:  
-                    parent.left_child = None  
+                    parent.left = None  
             else:  
                 self.root_node = None 
         elif children_count == 1:  
             next_node = None  
-            if node.left_child:  
-                next_node = node.left_child  
+            if node.left:  
+                next_node = node.left
             else:  
-                next_node = node.right_child  
+                next_node = node.right
  
             if parent:  
-                if parent.left_child is node:  
-                    parent.left_child = next_node  
+                if parent.left is node:  
+                    parent.left = next_node  
                 else:  
-                    parent.right_child = next_node  
+                    parent.right = next_node  
             else:  
-                self.root_node = next_node  
+                self.root = next_node  
         else:  
             parent_of_leftmost_node = node  
-            leftmost_node = node.right_child  
-            while leftmost_node.left_child:  
+            leftmost_node = node.right  
+            while leftmost_node.left:  
                 parent_of_leftmost_node = leftmost_node  
-                leftmost_node = leftmost_node.left_child  
+                leftmost_node = leftmost_node.left  
             node.data = leftmost_node.data       
     
-            if parent_of_leftmost_node.left_child == leftmost_node:  
-                parent_of_leftmost_node.left_child = leftmost_node.right_child  
+            if parent_of_leftmost_node.left == leftmost_node:  
+                parent_of_leftmost_node.left = leftmost_node.right  
             else:  
-                parent_of_leftmost_node.right_child = leftmost_node.right_child
+                parent_of_leftmost_node.right = leftmost_node.right
 
 
     # This method will convert the tree to a string representation
@@ -130,6 +130,10 @@ def main():
 
     for n in [4,3,5,2,6,1]:
         t.insert(n)
+
+    print(t)
+
+    t.remove(3)
 
     print(t)
 
