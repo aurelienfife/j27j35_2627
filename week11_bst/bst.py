@@ -52,6 +52,49 @@ class BSTree:
                         parent.right = current
                         return
 
+    # Traversal algorithms
+    # In-order: left branches first, then nodes, then right branches
+    # Pre-order: nodes, then left branches, then right branches
+    # Post-order: left branches, then right branches, then nodes
+    def inorder(self, root):
+        # Define current node as root
+        current = root
+        # Base case: empty node
+        if current is None:
+            return
+        # Recursively traverse left
+        self.inorder(current.left)
+        print(current.data)
+        self.inorder(current.right)
+    
+
+    # Search: binary-search
+    # If node is what we want then return it
+    # Otherwise try again on left if search val < node
+    # Else try again on right
+    def search(self, data):
+        # Set current to root
+        current = self.root
+        while True:
+            if current is None:
+                # Not found
+                print("Not found")
+                return
+            elif current.data == data:
+                # Match
+                print("Data found")
+                return current.data
+            elif data < current.data: # Shift current to left
+                current = current.left
+            else:
+                current = current.right
+            
+
+    # Those are to remove, the three cases on lecture slides
+    # Code is from 
+    # https://github.com/PacktPublishing/Hands-On-Data-Structures-and-Algorithms-with-Python-Third-Edition/blob/main/Chapter06/binary_search_tree.py
+
+
     def get_node_with_parent(self, data): 
         parent = None 
         current = self.root 
@@ -149,11 +192,16 @@ def main():
         t.insert(n)
 
     print(t)
-
     t.remove(3)
-
     print(t)
 
+    # inorder
+    print("In order")
+    t.inorder(t.root) # Because of how the function is written we need to pass the root
+
+    t.search(4)
+    t.search(3)
+    t.search(6)
 
 
 if __name__ == "__main__":
