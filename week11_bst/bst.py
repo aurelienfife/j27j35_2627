@@ -52,6 +52,23 @@ class BSTree:
                         parent.right = current
                         return
 
+    def get_node_with_parent(self, data): 
+        parent = None 
+        current = self.root 
+        if current is None: 
+            return (parent, None) 
+        while True: 
+            if current.data == data: 
+                return (parent, current) 
+            elif current.data > data: 
+                parent = current 
+                current = current.left 
+            else: 
+                parent = current 
+                current = current.right
+        return (parent, current) 
+
+    
     def remove(self, data):  
         parent, node = self.get_node_with_parent(data)  
  
